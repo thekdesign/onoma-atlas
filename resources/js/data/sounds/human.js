@@ -1,0 +1,96 @@
+/* eslint-disable max-len */
+/**
+ * 人聲情緒科 · Humana
+ * 打噴嚏、大笑、大哭、親一下——人類身體發出的聲音，最容易跨越語言。
+ * 但即使是同一個哈啾，每個國家也寫得不太一樣。
+ */
+export const human = [
+    {
+        id: 11,
+        number: '11',
+        familyKey: 'HUMAN',
+        concept: '打噴嚏',
+        conceptEn: 'Sneeze',
+        glyph: '🤧',
+        hook: '一個哈啾，各國各有寫法，但都先憋一口氣。',
+        funFact: '英語打完噴嚏旁人會說「Bless you」，德語說「Gesundheit（祝健康）」，連回應都成了文化。',
+        trivia: '打噴嚏的擬聲詞普遍分兩段：先是吸氣的「ha / ハ」，再爆出「choo / ション」。英語 achoo、日語 ハクション、法語 atchoum、德語 hatschi——你會發現第二段幾乎都收在「ch / sh」這個爆破摩擦音上，因為那最接近噴嚏噴出的瞬間。',
+        variants: [
+            {flag: '🇹🇼', country: '台灣', lang: 'zh-TW', word: '哈啾', roman: 'hā jiū'},
+            {flag: '🇯🇵', country: '日本', lang: 'ja-JP', word: 'ハクション', roman: 'hakushon', fav: true},
+            {flag: '🇺🇸', country: '美國', lang: 'en-US', word: 'Achoo', roman: 'a-chooo'},
+            {flag: '🇰🇷', country: '韓國', lang: 'ko-KR', word: '에취', roman: 'echwi'},
+            {flag: '🇫🇷', country: '法國', lang: 'fr-FR', word: 'Atchoum', roman: 'at-shoom'},
+            {flag: '🇩🇪', country: '德國', lang: 'de-DE', word: 'Hatschi', roman: 'hat-shi'},
+        ],
+    },
+    {
+        id: 12,
+        number: '12',
+        familyKey: 'HUMAN',
+        concept: '大笑',
+        conceptEn: 'Laughter',
+        glyph: '😆',
+        hook: '哈哈、ハハ、kkkk——連笑聲在網路上都有國籍。',
+        funFact: '韓國人打字笑用「ㅋㅋㅋ」（k 的子音連打），泰國人用數字「555」（因為 5 在泰語唸 hâ，連起來就是哈哈哈）。',
+        trivia: '笑聲擬聲詞的精髓在母音與重複：開懷大笑全球幾乎都是「ha ha」家族。真正分歧的是「網路笑」——韓語把笑聲簡化成子音連打「ㅋㅋㅋ（kkkk）」，泰語則靠諧音用「555」，這些是純文字時代才長出來的新型擬聲詞。',
+        variants: [
+            {flag: '🇹🇼', country: '台灣', lang: 'zh-TW', word: '哈哈哈', roman: 'hā hā hā'},
+            {flag: '🇯🇵', country: '日本', lang: 'ja-JP', word: 'ハハハ', roman: 'ha ha ha'},
+            {flag: '🇺🇸', country: '美國', lang: 'en-US', word: 'Hahaha', roman: ''},
+            {flag: '🇰🇷', country: '韓國', lang: 'ko-KR', word: '하하하', roman: 'ha ha ha', fav: true},
+            {flag: '🇫🇷', country: '法國', lang: 'fr-FR', word: 'Hahaha', roman: ''},
+        ],
+    },
+    {
+        id: 13,
+        number: '13',
+        familyKey: 'HUMAN',
+        concept: '哭泣',
+        conceptEn: 'Crying',
+        glyph: '😭',
+        hook: '從嗚咽到嚎啕，眼淚的聲音各國都拉得好長。',
+        funFact: '日語「エーン（ēn）」是小孩放聲大哭的標準音，動漫裡只要這四個假名一出現，畫面一定是淚如雨下。',
+        trivia: '哭聲擬聲詞通常靠拉長的鼻音與母音來表現悲傷的綿延：華語「嗚嗚」、日語「エーン」、韓語「엉엉（eong eong）」。英語則分得很細——啜泣是「sob」、放聲大哭是「waah」、假哭撒嬌是「boo-hoo」。',
+        variants: [
+            {flag: '🇹🇼', country: '台灣', lang: 'zh-TW', word: '嗚嗚', roman: 'wū wū'},
+            {flag: '🇯🇵', country: '日本', lang: 'ja-JP', word: 'エーン', roman: 'ēn', fav: true},
+            {flag: '🇺🇸', country: '美國', lang: 'en-US', word: 'Boo-hoo', roman: 'boo-hoo'},
+            {flag: '🇰🇷', country: '韓國', lang: 'ko-KR', word: '엉엉', roman: 'eong eong'},
+        ],
+    },
+    {
+        id: 14,
+        number: '14',
+        familyKey: 'HUMAN',
+        concept: '親吻',
+        conceptEn: 'Kiss',
+        glyph: '💋',
+        hook: '一個「啾」，全世界都靠嘴唇的爆破音來表現。',
+        funFact: '英語的「mwah」是飛吻的標準音，韓語的「쪽（jjok）」短促又響亮，是 K-drama 裡親親的招牌音效。',
+        trivia: '親吻聲幾乎全靠雙唇的塞音與摩擦來模擬：華語「啾」、日語「チュー（chū）」、韓語「쪽」、英語「mwah / smooch」。這是少數不需要聲帶、純靠嘴唇就能發出的擬聲詞，所以各語言的版本聽起來都格外接近。',
+        variants: [
+            {flag: '🇹🇼', country: '台灣', lang: 'zh-TW', word: '啾', roman: 'jiū'},
+            {flag: '🇯🇵', country: '日本', lang: 'ja-JP', word: 'チュー', roman: 'chū', fav: true},
+            {flag: '🇺🇸', country: '美國', lang: 'en-US', word: 'Mwah', roman: 'mwah'},
+            {flag: '🇰🇷', country: '韓國', lang: 'ko-KR', word: '쪽', roman: 'jjok'},
+        ],
+    },
+    {
+        id: 15,
+        number: '15',
+        familyKey: 'HUMAN',
+        concept: '心跳',
+        conceptEn: 'Heartbeat',
+        glyph: '💓',
+        hook: '緊張或心動時，胸口那兩下「撲通」。',
+        funFact: '日語「ドキドキ（doki doki）」不只是心跳聲，更直接代表「小鹿亂撞、好緊張、好心動」的情緒，是少女漫畫的靈魂字。',
+        trivia: '心跳擬聲詞是「聲音變情緒」的最佳範例。日語的「ドキドキ」早已從心跳聲升級成形容詞，意指心動或緊張；韓語「두근두근（dugeun dugeun）」同理。華語「撲通撲通」與英語「thump / ba-dump」則還比較貼近單純的聲音模擬。',
+        variants: [
+            {flag: '🇹🇼', country: '台灣', lang: 'zh-TW', word: '撲通撲通', roman: 'pū tōng pū tōng'},
+            {flag: '🇯🇵', country: '日本', lang: 'ja-JP', word: 'ドキドキ', roman: 'doki doki', fav: true},
+            {flag: '🇺🇸', country: '美國', lang: 'en-US', word: 'Ba-dump', roman: 'ba-dump'},
+            {flag: '🇰🇷', country: '韓國', lang: 'ko-KR', word: '두근두근', roman: 'dugeun dugeun'},
+        ],
+    },
+];
