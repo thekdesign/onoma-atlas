@@ -144,9 +144,9 @@ export default {
         const family = computed(() => (sound.value ? familyMap.get(sound.value.familyKey) : familyMap.get('ANIMAL')));
 
         const index = computed(() => soundStore.list.findIndex((s) => s.id === Number(route.params.soundId)));
-        const prev = computed(() => (index.value > 0 ? soundStore.list[index.value - 1] : null));
+        const prev = computed(() => (index.value > 0 ? soundStore.list[index.value - 1] : undefined));
         const next = computed(() => (index.value >= 0 && index.value < soundStore.list.length - 1
-            ? soundStore.list[index.value + 1] : null));
+            ? soundStore.list[index.value + 1] : undefined));
 
         useHead(computed(() => {
             if (!sound.value) return {title: '找不到聲音 · Onoma'};

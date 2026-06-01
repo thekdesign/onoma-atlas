@@ -16,7 +16,7 @@ const isBrowser = typeof window !== 'undefined' && typeof window.speechSynthesis
 // ── 模組層級共享狀態（單例）─────────────────────────────
 const supported = ref(isBrowser);
 const voices = ref([]);
-const speakingKey = ref(null); // 目前正在播放的 variant key（null = 沒在播）
+const speakingKey = ref(undefined); // 目前正在播放的 variant key（undefined = 沒在播）
 let voicesLoaded = false;
 
 const loadVoices = () => {
@@ -41,24 +41,24 @@ const initVoices = () => {
  * 依語言碼挑最適合的 voice：
  *   1. 完全相符（ja-JP === ja-JP）
  *   2. 語言前綴相符（ja-JP 對到任何 ja-*）
- *   3. 找不到回 null（交給瀏覽器預設 voice）
+ *   3. 找不到回 undefined（交給瀏覽器預設 voice）
  */
 const pickVoice = (lang) => {
-    if (!lang || !voices.value.length) return null;
+    if (!lang || !voices.value.length) return undefined;
     const norm = lang.toLowerCase();
     const prefix = norm.split('-')[0];
     return (
         voices.value.find((v) => v.lang && v.lang.toLowerCase() === norm)
         || voices.value.find((v) => v.lang && v.lang.toLowerCase().startsWith(`${prefix}-`))
         || voices.value.find((v) => v.lang && v.lang.toLowerCase() === prefix)
-        || null
+        || undefined
     );
 };
 
 const stop = () => {
     if (!isBrowser) return;
     window.speechSynthesis.cancel();
-    speakingKey.value = null;
+    speakingKey.value = undefined;
 };
 
 /**
@@ -97,7 +97,7 @@ const speak = ({text, lang, key, rate = 0.85, pitch = 1.05}) => {
         speakingKey.value = key || text;
     };
     const clear = () => {
-        if (speakingKey.value === (key || text)) speakingKey.value = null;
+        if (speakingKey.value === (key || text)) speakingKey.value = undefined;
     };
     utterance.onend = clear;
     utterance.onerror = clear;
