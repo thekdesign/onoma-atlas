@@ -5,9 +5,11 @@
             :class="flipped ? '[transform:rotateY(180deg)]' : ''"
         >
             <!-- ── 正面 ─────────────────────────────── -->
+            <!-- 不靠 backface-visibility（iOS + backdrop-filter 會失效），改在翻牌中點切 opacity -->
             <button
                 type="button"
-                class="absolute inset-0 flex flex-col items-center rounded-4xl border border-white/70 bg-white/75 px-5 py-6 text-center shadow-puff backdrop-blur-md [backface-visibility:hidden] transition-shadow hover:shadow-[0_24px_60px_-18px_rgba(132,92,240,0.45)]"
+                class="face face--front absolute inset-0 flex flex-col items-center rounded-4xl border border-white/70 bg-white/75 px-5 py-6 text-center shadow-puff backdrop-blur-md hover:shadow-[0_24px_60px_-18px_rgba(132,92,240,0.45)]"
+                :class="flipped ? 'pointer-events-none opacity-0' : 'opacity-100'"
                 :aria-label="`${sound.concept}：翻牌看 ${sound.variants.length} 國說法`"
                 @click="flipped = true"
             >
@@ -51,7 +53,8 @@
 
             <!-- ── 背面 ─────────────────────────────── -->
             <div
-                class="absolute inset-0 flex flex-col rounded-4xl border border-white/70 bg-white/85 shadow-puff backdrop-blur-md [backface-visibility:hidden] [transform:rotateY(180deg)]"
+                class="face face--back absolute inset-0 flex flex-col rounded-4xl border border-white/70 bg-white/85 shadow-puff backdrop-blur-md [transform:rotateY(180deg)]"
+                :class="flipped ? 'opacity-100' : 'pointer-events-none opacity-0'"
             >
                 <!-- 背面標題列（點此翻回）-->
                 <button
@@ -127,6 +130,21 @@ export default {
 </script>
 
 <style scoped>
+/* 翻牌正反面：不靠 backface-visibility（iOS + backdrop-filter 會失效）。
+   opacity 在「翻牌中點」(300ms = 600ms 的一半，卡片轉到側面看不見時) 瞬間切換，
+   正面就不會在翻面後還鏡像疊在上面。transition-delay 是關鍵，故寫在 scoped CSS
+   （Tailwind 會丟棄含逗號 / -webkit- 前綴的 arbitrary 值）。 */
+.face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.face--front {
+    transition: box-shadow 200ms ease, opacity 0s linear 300ms;
+}
+.face--back {
+    transition: opacity 0s linear 300ms;
+}
+
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
