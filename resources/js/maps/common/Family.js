@@ -39,6 +39,15 @@ export const familyMap = new EnumMap(Family, {
         gradient: ['#CDBCFF', '#B49AFF'],
         blurb: '敲門、鈴響、爆炸、鼓掌——日常物件發出的聲音，是漫畫狀聲字的主場。',
     },
+    REACTION: {
+        label: '感嘆反應科',
+        latin: 'Reactio',
+        shortLabel: '反應',
+        emoji: '💢',
+        accent: '#F2683E',
+        gradient: ['#FFB570', '#FF8A6B'],
+        blurb: '燙到、喊痛、嚇一跳、覺得噁心——這些下意識脫口而出的反應詞，最能看出語言怎麼「規定」我們的本能。',
+    },
 });
 
 // familyList：給 filter chips / section headers / sidebar 索引用

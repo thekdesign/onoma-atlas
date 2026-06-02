@@ -5,4 +5,5 @@ export const Family = new Enum([
     'NATURE',
     'HUMAN',
     'THING',
+    'REACTION',
 ], {ignoreCase: false});
